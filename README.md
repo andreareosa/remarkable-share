@@ -7,6 +7,8 @@
   Built by <a href="https://github.com/andreareosa">@andreareosa</a>. Contributions welcome.
 </p>
 
+<p align="center"><img src="docs/screenshot.png" width="800" alt="reMarkable Share streaming a handwritten page over Wi-Fi, with the menu bar menu open"></p>
+
 ---
 
 ## Why I built this
