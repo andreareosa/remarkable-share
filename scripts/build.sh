@@ -1,7 +1,8 @@
 #!/bin/bash
-# Build "reMarkable Share.app" into ./build (Release, ad-hoc signed for this Mac).
+# Build "reMarkable Share.app" into ./build.noindex (Release, ad-hoc signed).
 #
-# Usage: ./scripts/build.sh
+# Usage: ./scripts/build.sh              # this Mac's architecture
+#        UNIVERSAL=1 ./scripts/build.sh  # Apple Silicon + Intel (used for releases)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -17,8 +18,10 @@ if ! xcrun --find swift >/dev/null 2>&1; then
 fi
 
 echo "Building $APP_NAME $VERSION ($BUILD_NUMBER)..."
-swift build -c release --product RemarkableShare
-BIN="$(swift build -c release --show-bin-path)/RemarkableShare"
+ARCH_FLAGS=()
+[[ "${UNIVERSAL:-0}" == "1" ]] && ARCH_FLAGS=(--arch arm64 --arch x86_64)
+swift build -c release --product RemarkableShare "${ARCH_FLAGS[@]+"${ARCH_FLAGS[@]}"}"
+BIN="$(swift build -c release "${ARCH_FLAGS[@]+"${ARCH_FLAGS[@]}"}" --show-bin-path)/RemarkableShare"
 
 # Icon is generated once and committed; regenerate by deleting Resources/AppIcon.icns.
 if [[ ! -f Resources/AppIcon.icns ]]; then

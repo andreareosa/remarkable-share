@@ -41,11 +41,23 @@ If the official Screen Share fails for you the same way, this app should work.
 ## Requirements
 
 - A **reMarkable 2** (tested on firmware 3.25)
-- **macOS 15** or later
-- **Xcode**, or the Command Line Tools with Swift 6, to build the app
+- **macOS 15** or later, on an Apple Silicon or Intel Mac
 - The tablet's **USB cable** for first-time setup and for starting each share
 
 ## Install
+
+### Download (easiest)
+
+1. Download the latest **reMarkable-Share-x.y.z.zip** from
+   [Releases](https://github.com/andreareosa/remarkable-share/releases/latest).
+2. Unzip it and move **reMarkable Share** to your Applications folder.
+3. Open it. The app isn't notarized by Apple (that needs a paid developer account), so
+   macOS blocks the first launch. Go to **System Settings → Privacy & Security**, scroll
+   down and click **Open Anyway**. You only need to do this once.
+
+### Build from source
+
+Requires Xcode, or the Command Line Tools with Swift 6.
 
 ```sh
 git clone https://github.com/andreareosa/remarkable-share.git
@@ -54,7 +66,8 @@ cd remarkable-share
 ```
 
 This builds the app, installs it to `/Applications/reMarkable Share.app` and launches it.
-Look for the icon in the menu bar (top-right).
+
+Either way, look for the icon in the menu bar (top-right).
 
 **First run:**
 
@@ -127,6 +140,8 @@ Contributions are welcome: [open an issue](https://github.com/andreareosa/remark
 swift test           # unit tests
 ./scripts/check.sh   # tests + app build + shellcheck; run before opening a pull request
 ```
+
+Changes are listed in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Credits
 
