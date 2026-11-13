@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>reMarkable Share</string>
+	<key>CFBundleName</key>
+	<string>reMarkable Share</string>
+	<key>CFBundleExecutable</key>
+	<string>RemarkableShare</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.areosa.remarkable-share</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>__VERSION__</string>
+	<key>CFBundleVersion</key>
+	<string>__BUILD__</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+	<!-- Menu bar app: no Dock icon. -->
+	<key>LSUIElement</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.areosa.remarkable-share</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>remarkable-share</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<!-- Lets macOS show the Local Network prompt (the official reMarkable app lacks this key,
+	     which is why macOS silently blocks it and never lists it in Settings). -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>reMarkable Share connects to your reMarkable tablet over the USB cable or your Wi-Fi to show its screen.</string>
+	<!-- Plain HTTP only to local addresses (the USB link); everything else stays HTTPS-only. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+</dict>
+</plist>
